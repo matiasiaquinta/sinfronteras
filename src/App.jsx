@@ -14,6 +14,11 @@ import Ajustes from "./pages/Ajustes";
 import { PlanProvider } from "./context/PlanContext";
 import Reportes from "./pages/Reportes";
 
+/* esto es para el deploy */
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+if (process.env.NODE_ENV === "production") disableReactDevTools();
+
 function App() {
     return (
         <AuthProvider>

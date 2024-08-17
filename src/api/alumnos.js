@@ -4,7 +4,7 @@
 
 */
 
-import { createAlumnoSchema } from "../../../server/src/schemas/alumno.schema";
+//import { createAlumnoSchema } from "../../../server/src/schemas/alumno.schema";
 import axios from "./axios";
 
 // Obtiene todos los alumnos
@@ -41,7 +41,7 @@ export const getAlumnoRequest = (id) => axios.get(`/alumnos/${id}`);
 export const createAlumnoRequest = async (alumno) => {
     try {
         // Validar los datos del alumno usando el esquema de Zod
-        createAlumnoSchema.parse(alumno);
+        //createAlumnoSchema.parse(alumno);
 
         // Si pasa la validación, enviar la solicitud al servidor
         const response = await axios.post("/alumnos", alumno);

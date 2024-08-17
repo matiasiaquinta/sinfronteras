@@ -3,7 +3,7 @@
     los datos de los planes del backend
 */
 
-import { createPlanSchema } from "../../../server/src/schemas/plan.schema";
+//import { createPlanSchema } from "../../../server/src/schemas/plan.schema";
 import axios from "./axios";
 
 // Obtiene todos los planes
@@ -16,7 +16,7 @@ export const getPlanRequest = (id) => axios.get(`/planes/${id}`);
 export const createPlanRequest = async (plan) => {
     try {
         // Validar los datos del plan usando el esquema de Zod
-        createPlanSchema.parse(plan);
+        //createPlanSchema.parse(plan);
 
         // Si pasa la validación, enviar la solicitud al servidor
         const response = await axios.post("/planes", plan);
