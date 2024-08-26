@@ -1,8 +1,8 @@
 import axios from "axios";
-//import { API_URL } from "../config";
+import { VITE_API_URL } from "../config";
 
 const instance = axios.create({
-    baseURL: "https://sinfronteras-api.onrender.com",
+    baseURL: VITE_API_URL,
     withCredentials: true,
 });
 
