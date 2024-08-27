@@ -2,19 +2,30 @@
     Esto es el molde de cada página para que se respete siempre el mismo tamaño
     Home - Alumnos - etc
 */
-
+import Cookies from "js-cookie";
 import Navigation from "./Navigation";
 import logo from "../../assets/sfLogo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBell } from "react-icons/fa";
 
 const Layout = ({ children }) => {
     /* Notificaciones Hacer */
     const [showNotifications, setShowNotifications] = useState(false);
+    const [token, setToken] = useState("");
 
     const toggleNotifications = () => {
         setShowNotifications(!showNotifications);
     };
+
+    // TOKEN TEST
+    useEffect(() => {
+        // Obtener el token de las cookies
+        const tokenFromCookie = Cookies.get("token");
+        console.log("tokenFromCookie", tokenFromCookie);
+        if (tokenFromCookie) {
+            setToken(tokenFromCookie);
+        }
+    }, []);
 
     return (
         <div className="flex flex-col h-screen text-black">
@@ -27,7 +38,8 @@ const Layout = ({ children }) => {
                     className="rounded-md"
                 />
                 <h1 className="uppercase font-bold text-xl mx-auto">
-                    Sin Fronteras
+                    Sin Fronteras -{" "}
+                    <span className="text-sm">Token: {token}</span>
                 </h1>
                 <div className="relative">
                     <FaBell

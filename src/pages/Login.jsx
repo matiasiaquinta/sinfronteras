@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import sfLogo from "../assets/sfLogo.png";
+/* import Cookies from "js-cookie"; */
 
 export function Login() {
+    /*     const [token, setToken] = useState(""); */
     const {
         register,
         handleSubmit,
@@ -24,6 +26,16 @@ export function Login() {
         }
     }, [isAuthenticated]);
 
+    // TOKEN TEST
+    /*     useEffect(() => {
+        // Obtener el token de las cookies
+        const tokenFromCookie = Cookies.get("token");
+        console.log("tokenFromCookie", tokenFromCookie);
+        if (tokenFromCookie) {
+            setToken(tokenFromCookie);
+        }
+    }, []); */
+
     return (
         <div className="flex h-screen items-center justify-center text-black">
             <div className="bg-cyan-500 w-4/5 m-auto p-10 rounded-md">
@@ -38,6 +50,7 @@ export function Login() {
                 <div className="text-2xl text-center mb-6">
                     <span>Bienvenido a </span>
                     <span className="block font-bold">Sin Fronteras Club</span>
+                    {/* <span className="text-sm">Token: {token}</span> */}
                 </div>
 
                 {signinErrors.map((error, i) => (
@@ -80,14 +93,12 @@ export function Login() {
                         Ingresar
                     </button>
                 </form>
-                {/* 
                 <p className="flex gap-x-2">
                     ¿No tenes cuenta?{" "}
                     <Link to="/register" className="">
                         Registrate
                     </Link>
                 </p>
-                 */}
             </div>
         </div>
     );
